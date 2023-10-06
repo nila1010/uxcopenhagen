@@ -18,7 +18,7 @@
   /* Text-size styles */
   --h1-bold-web: 63px;
   --h1-thin-web: 63px;
-  --h2-bold-web: 58px;
+  --h2-bold-web: 45px;
   --h2-thin-web: 63px;
   --h3-bold-web: 27px;
   --h3-thin-web: 27px;
@@ -33,6 +33,7 @@
 
   /* Font styles */
   --h1-body-font: "Inter", Arial;
+  --h2-body-font: "Inter", Arial;
   --link-font: "Inter", Arial;
   --body-p-font: "Inter", Arial;
 }
@@ -55,6 +56,13 @@ main {
 
 h1 {
   font-family: var(--h1-body-font);
+  font-weight: 700;
+}
+
+h2 {
+  font-family: var(--h2-body-font);
+  font-size: var(--h2-bold-web);
+  font-weight: 700;
 }
 
 a {

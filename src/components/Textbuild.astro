@@ -17,8 +17,8 @@ console.log(sec2);
 
 <style>
   section {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin-top: 10rem;
     gap: 10rem;
   }
@@ -54,7 +54,7 @@ console.log(sec2);
     font-weight: 100;
   }
 
-  article:nth-child(odd) img {
+  section:nth-child(odd) img {
     order: -1;
   }
 </style>

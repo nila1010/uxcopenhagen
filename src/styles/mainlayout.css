@@ -54,6 +54,10 @@ main {
   flex-grow: 1;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
 h1 {
   font-family: var(--h1-body-font);
   font-weight: 700;

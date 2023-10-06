@@ -1,14 +1,8 @@
 ---
-const { data } = Astro.props;
-console.log(data);
+
 ---
 
-<article>
-  <h1><span>{data.titelthin}</span>{data.titelbold}</h1>
-  <div></div>
-  <div class="link">
-    <a href="/#">{}</a>
-    <a href="/#">{}</a>
-    <a href="/#">{}</a>
-  </div>
-</article>
+<section>
+  <slot />
+  <img src="" alt="" />
+</section>

@@ -1,5 +1,5 @@
 ---
-const { overskrift_bold, overskrift_thin, text} = Astro.props;
+const { overskrift_bold, overskrift_thin, text, textbox} = Astro.props;
 ---
 <section>
 <article>
@@ -7,7 +7,7 @@ const { overskrift_bold, overskrift_thin, text} = Astro.props;
     <h2>{overskrift_bold}<span>{overskrift_thin}</span></h2>
     <div></div>
 </article>
-  <p>{text}</p>
+{textbox && <p>{text}</p>}
   </section>
 
 <style>
@@ -50,7 +50,7 @@ div {
 }
 
     p {
-        color: black;
+        color:  var(--text-color-main);
     
         max-width: 65ch;
     }

@@ -33,7 +33,7 @@
 
   /* Font styles */
   --h1-body-font: "Inter", Arial;
-  --link-nav-font: "Inter", Arial;
+  --link-font: "Inter", Arial;
   --body-p-font: "Inter", Arial;
 }
 
@@ -58,15 +58,21 @@ h1 {
 }
 
 a {
-  font-family: var(--link-nav-font);
+  font-family: var(--link-font);
+  font-size: var(--link-reg-web);
   text-decoration: none;
+  color: var(--link-color-main);
+}
+
+a:hover {
+  color: var(--text-hover-color);
 }
 
 p {
   font-family: var(--body-p-font);
   color: var(--text-color-alternativ);
   font-size: var(--body-thin-web);
-  font-weight: 100;
+  line-height: 24px;
 }
 
 /*FOOTER

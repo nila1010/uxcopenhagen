@@ -1,0 +1,57 @@
+---
+const { overskrift_bold, overskrift_thin, text, textbox} = Astro.props;
+---
+<section>
+<article>
+<div></div>
+    <h2>{overskrift_bold}<span>{overskrift_thin}</span></h2>
+    <div></div>
+</article>
+{textbox && <p>{text}</p>}
+  </section>
+
+<style>
+
+section {
+    display: flex;
+   flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+article {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 20px;
+    
+}
+
+h2 {
+    text-align: center;
+    background-color: white;
+    grid-row: 1;
+    grid-column: 1;
+    min-width: fit-content;
+    
+}
+
+span {
+    font-weight: 100;
+    margin-left: 10px;
+}
+
+div {
+    height: 3px;
+    width: 100vw;
+    background-color: black;
+     grid-row: 1;
+     grid-column: 1;
+}
+
+    p {
+        color:  var(--text-color-main);
+    
+        max-width: 65ch;
+    }
+</style>

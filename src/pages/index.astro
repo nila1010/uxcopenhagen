@@ -1,7 +1,10 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Textbuild from "../components/Textbuild.astro";
+import Headline from "../components/Headline.astro";
 import Intro from "../components/Intro.astro";
 ---
 
-<MainLayout />
+<MainLayout>
+  <Intro />
+  <Headline textbox={true} overskrift_bold="Call for speakers" overskrift_thin="2024" text="Our call for speakers is open each year from June 1 - Sep 1. Please send an email to conference curator Helle Martens with our proposal: hello@uxcopenhagen.com." />
+</MainLayout>

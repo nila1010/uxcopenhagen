@@ -1,8 +1,60 @@
 ---
-
+const { data } = Astro.props;
+console.log(data);
+const sec2 = data.section2;
+console.log(sec2);
 ---
 
 <section>
-  <slot />
-  <img src="" alt="" />
+  <article>
+    <h1 class="thin">{data.titelthin}</h1>
+    <h1>{data.titelbold}</h1>
+
+    <a href="/# ">{data.link1}</a>
+  </article>
+  <img src="/${data.image}" alt="prev talks" />
 </section>
+
+<style>
+  section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10rem;
+    gap: 10rem;
+  }
+
+  img {
+    margin-top: 110px;
+    width: 35%;
+    height: auto;
+  }
+
+  .thin {
+    font-weight: 100;
+  }
+
+  article {
+    background-color: var(--brand-color-primary);
+    border-radius: 0 50px 50px 0;
+    padding: 2rem 2rem 2rem 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 673px;
+    max-height: 429px;
+  }
+
+  h1 {
+    color: var(--text-color-alternativ);
+    height: 40px;
+  }
+
+  p {
+    color: var(--text-color-alternativ);
+    font-weight: 100;
+  }
+
+  article:nth-child(odd) img {
+    order: -1;
+  }
+</style>

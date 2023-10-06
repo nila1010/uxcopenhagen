@@ -59,6 +59,7 @@ img {
   height: auto;
 }
 h1 {
+  font-size: var(--h1-bold-web);
   font-family: var(--h1-body-font);
   font-weight: 700;
 }

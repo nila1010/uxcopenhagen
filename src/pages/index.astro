@@ -1,4 +1,12 @@
 ---
+const response = await fetch("https://fcjitciuvvjnpyohjrbx.supabase.co/rest/v1/index", {
+  method: "GET",
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZjaml0Y2l1dnZqbnB5b2hqcmJ4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTY0OTY1NDQsImV4cCI6MjAxMjA3MjU0NH0.hqEiYxGAHflWDfWpEC53ykk3Y2DA57jMZbBYXMcWYr8",
+  },
+});
+const data = await response.json();
+
 import MainLayout from "../layouts/MainLayout.astro";
 import Headline from "../components/Headline.astro";
 import Intro from "../components/Intro.astro";
@@ -23,57 +31,19 @@ import Textbuild from "../components/Textbuild.astro";
   </Intro>
   <Headline textbox={true} overskrift_bold="Call for speakers" overskrift_thin="2024" text="Our call for speakers is open each year from June 1 - Sep 1. Please send an email to conference curator Helle Martens with our proposal: hello@uxcopenhagen.com." />
   <section>
-    <article class="test">
-      <h1><span>Previous</span> Talks</h1>
-      <p>In case you missed out, some of the talks from previous years are available on our YouTube channel for free viewing. The full recordings, including Q&A sessions and the talks not found on YouTube are available for purchase – please visit our shop for more information.</p>
-      <a href="/prevtalks">Read more</a>
-    </article>
-    <img src="/prevtalks.png" alt="prev talks" />
+    {
+      data.map((text) => {
+        return <Textbuild data={text} />;
+      })
+    }
   </section>
 </MainLayout>
 
 <style>
-  section {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10rem;
-    gap: 10rem;
-  }
-
-  img {
-    margin-top: 110px;
-    width: 35%;
-    height: auto;
-  }
-
-  span {
-    font-weight: 100;
-  }
-
-  .test {
-    background-color: var(--brand-color-primary);
-    border-radius: 0 50px 50px 0;
-    padding: 2rem 2rem 2rem 10rem;
+  article {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    max-width: 673px;
-    max-height: 429px;
-  }
-  .intro {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .test h1 {
-    max-width: 2rem;
-    color: var(--text-color-alternativ);
-  }
-
-  .test p {
-    color: var(--text-color-alternativ);
-    font-weight: 100;
   }
 
   .block {
@@ -93,7 +63,6 @@ import Textbuild from "../components/Textbuild.astro";
   }
 
   h1 {
-    font-size: var(--h1-bold-web);
     max-width: 15ch;
   }
 </style>

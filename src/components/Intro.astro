@@ -5,9 +5,9 @@ const { titel, block1, block2, block3, link1, link2, link3 } = Astro.props;
 <section>
   <video autoplay src="/main_rotate_1.mp4" loop="auto"></video>
   <article>
-    <h1>{titel}</h1>
+    {titel}
     <div class="block">
-      <p>{block1}</p>
+      <p><slot /></p>
       <p>{block2}</p>
       <p>{block3}</p>
     </div>

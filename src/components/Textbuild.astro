@@ -3,7 +3,7 @@ const { data } = Astro.props;
 ---
 
 <section>
-  <article>
+  <article class="text" class="push-left">
     <h1 class="thin">{data.titelthin}</h1>
     <h1>{data.titelbold}</h1>
     {data.section1 && <p>{data.section1}</p>}
@@ -12,7 +12,7 @@ const { data } = Astro.props;
     {data.section4 && <p>{data.section4}</p>}
     <a href="/# ">{data.link1}</a>
   </article>
-  <img src={data.image} alt="prev talks" />
+  <img class="img" class="push-right" src={data.image} alt="prev talks" />
 </section>
 
 <style>
@@ -27,6 +27,9 @@ const { data } = Astro.props;
     padding-top: 110px;
     max-width: 35%;
     height: 100%;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.5 ease-in-out;
   }
 
   .thin {
@@ -43,6 +46,11 @@ const { data } = Astro.props;
     gap: 30px;
     max-width: 673px;
     max-height: fit-content;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1 ease-in-out;
+  }
+  .text {
   }
 
   h1 {
@@ -54,8 +62,40 @@ const { data } = Astro.props;
     font-weight: 100;
   }
 
+  .push-right {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  .push-left {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
   section:nth-child(even) article {
     order: 1;
     border-radius: 50px 0 0 50px;
   }
 </style>
+
+<script>
+  const text = document.querySelector(".text");
+  const img = document.querySelector(".img");
+
+  window.addEventListener("scroll", appearOnScroll);
+
+  function appearOnScroll() {
+    let textPosition = text.getBoundingClientRect().top;
+    let windowHeight = window.innerHeight / 1.5;
+
+    console.log(windowHeight);
+
+    if (windowHeight > textPosition) {
+      text.classList.remove("push-left");
+      img.classList.remove("push-right");
+    } else {
+      text.classList.add("push-left");
+      img.classList.add("push-right");
+    }
+  }
+</script>

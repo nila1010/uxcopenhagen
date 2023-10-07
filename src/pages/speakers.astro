@@ -4,6 +4,14 @@ import Headline from "../components/Headline.astro";
 ---
 
 <MainLayout>
-  <Headline overskrift_bold="Speakers" overskrift_thin="2024" />
+  <section class="margintop">
+    <Headline overskrift_bold="Speakers" overskrift_thin="2024" />
+  </section>
   <MainLayout />
 </MainLayout>
+
+<style>
+  .margintop {
+    margin-top: 7rem;
+  }
+</style>

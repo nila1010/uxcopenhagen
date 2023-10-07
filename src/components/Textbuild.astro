@@ -12,21 +12,31 @@ const { data } = Astro.props;
     {data.section4 && <p>{data.section4}</p>}
     <a href="/# ">{data.link1}</a>
   </article>
-  <img class="img" class="push-right" src={data.image} alt="prev talks" />
+  <div>
+    <img class="img" class="push-right" src={data.image} alt="prev talks" />
+  </div>
 </section>
 
 <style>
   section {
-    display: flex;
-    justify-content: space-between;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     margin-bottom: 16rem;
-    gap: 10rem;
+    gap: 15rem;
+  }
+
+  div {
+    position: relative;
+    grid-row: 1;
+    grid-column: span 2;
+    max-width: 500px;
+    max-height: 375px;
   }
 
   img {
-    padding-top: 110px;
-    max-width: 35%;
-    height: 100%;
+    position: absolute;
+    top: 50%;
     opacity: 1;
     transform: translateX(0);
     transition: all 0.5 ease-in-out;
@@ -38,19 +48,17 @@ const { data } = Astro.props;
   }
 
   article {
+    grid-column: span 3;
+    grid-row: 1;
     background-color: var(--brand-color-primary);
     border-radius: 0 50px 50px 0;
     padding: 2rem 2rem 2rem 8rem;
     display: flex;
     flex-direction: column;
     gap: 30px;
-    max-width: 673px;
-    max-height: fit-content;
     opacity: 1;
     transform: translateX(0);
     transition: all 1 ease-in-out;
-  }
-  .text {
   }
 
   h1 {
@@ -60,6 +68,7 @@ const { data } = Astro.props;
   p {
     color: var(--text-color-alternativ);
     font-weight: 100;
+    max-width: 65ch;
   }
 
   .push-right {

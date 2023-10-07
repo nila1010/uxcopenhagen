@@ -75,6 +75,7 @@ a {
   font-size: var(--link-reg-web);
   text-decoration: none;
   color: var(--link-color-main);
+  max-width: fit-content;
 }
 
 a:hover {

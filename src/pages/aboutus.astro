@@ -44,7 +44,6 @@ import Textbuild from "../components/Textbuild.astro";
     display: flex;
     flex-direction: column;
     gap: 30px;
-    min-width: 650px;
   }
 
   .block {
@@ -64,6 +63,12 @@ import Textbuild from "../components/Textbuild.astro";
   }
   span {
     font-weight: 100;
+  }
+
+  @media (max-width: 1000px) {
+    .toph1 {
+      height: 20px;
+    }
   }
 
   /*----------------*/

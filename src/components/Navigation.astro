@@ -39,4 +39,23 @@
   a:hover {
     color: var(--link-color-main);
   }
+
+  @media (max-width: 600px) {
+    div {
+      height: 3.5rem;
+      border-radius: 20px;
+      background-color: var(--banner-color);
+      justify-content: center;
+      align-items: center;
+      min-width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    a {
+      color: var(--link-color-main);
+    }
+  }
 </style>

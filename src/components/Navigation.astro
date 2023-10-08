@@ -41,20 +41,26 @@
   }
 
   @media (max-width: 600px) {
+    nav {
+      margin: 0;
+      justify-content: center;
+    }
     div {
+      margin: 0 1rem;
       height: 3.5rem;
       border-radius: 20px;
       background-color: var(--banner-color);
       justify-content: center;
       align-items: center;
-      min-width: 100%;
+      min-width: fit-content;
       position: fixed;
-      bottom: 0;
-      left: 0;
+      bottom: 5px;
       z-index: 10;
+      padding: 0 1rem;
     }
 
     a {
+      font-size: 13px;
       color: var(--link-color-main);
     }
   }

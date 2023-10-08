@@ -33,6 +33,7 @@
   --body-thin-web: 14px;
   --body-generel-table: 12px;
   --link-reg-web: 22px;
+  --link-reg-mobil: 20px;
   --link-reg-nav-web: 20px;
   --link-reg-ticket-web: 16px;
 
@@ -121,6 +122,9 @@ footer {
   p {
     font-size: var(--body-generel-table);
     line-height: var(--line-hight-mobil-p);
+  }
+  a {
+    font-size: var(--link-reg-mobil);
   }
 }
 

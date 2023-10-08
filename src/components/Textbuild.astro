@@ -3,46 +3,39 @@ const { data } = Astro.props;
 ---
 
 <section>
-  <article class="text" class="push-left">
-    <h1 class="thin">{data.titelthin}</h1>
-    <h1>{data.titelbold}</h1>
-    {data.section1 && <p>{data.section1}</p>}
-    {data.section2 && <p>{data.section2}</p>}
-    {data.section3 && <p>{data.section3}</p>}
-    {data.section4 && <p>{data.section4}</p>}
-    <a href="/# ">{data.link1}</a>
-  </article>
   <div>
-    <img class="img" class="push-right" src={data.image} alt="prev talks" />
+    <article class="text" class="push-left">
+      <h1 class="thin">{data.titelthin}</h1>
+      <h1>{data.titelbold}</h1>
+      {data.section1 && <p>{data.section1}</p>}
+      {data.section2 && <p>{data.section2}</p>}
+      {data.section3 && <p>{data.section3}</p>}
+      {data.section4 && <p>{data.section4}</p>}
+      <a href="/# ">{data.link1}</a>
+    </article>
   </div>
+  <img class="img" class="push-right" src={data.image} alt="prev talks" />
 </section>
 
 <style>
-  div {
-    position: relative;
-    grid-row: 1;
-    grid-column: span 2;
-    max-width: 500px;
-    max-height: 375px;
+  section {
+    display: flex;
+    justify-content: space-between;
+    gap: 8rem;
+    margin-bottom: 12rem;
   }
 
   img {
-    position: absolute;
-    bottom: -8rem;
+    max-width: 500px;
+    align-self: end;
     opacity: 1;
     transform: translateX(0);
     transition: all 0.5 ease-in-out;
-  }
-
-  .thin {
-    font-weight: 100;
-    height: 40px;
+    margin-top: 12rem;
   }
 
   article {
-    max-width: 800px;
-    grid-column: span 3;
-    grid-row: 1;
+    max-height: fit-content;
     background-color: var(--brand-color-primary);
     border-radius: 0 50px 50px 0;
     padding: 2rem 2rem 2rem 8rem;
@@ -52,10 +45,24 @@ const { data } = Astro.props;
     opacity: 1;
     transform: translateX(0);
     transition: all 1 ease-in-out;
+    overflow-y: hidden;
+  }
+
+  section:nth-child(even) div:first-child {
+    order: 1;
+  }
+
+  section:nth-child(even) article {
+    border-radius: 50px 0 0 50px;
   }
 
   h1 {
     color: var(--text-color-alternativ);
+  }
+
+  .thin {
+    font-weight: 100;
+    height: 40px;
   }
 
   p {
@@ -74,47 +81,39 @@ const { data } = Astro.props;
     transform: translateX(-50px);
   }
 
-  section:nth-child(even) article {
-    order: 1;
-    border-radius: 50px 0 0 50px;
-  }
-
-  section {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    margin-bottom: 16rem;
-    gap: 7rem;
-    position: relative;
-  }
-
   @media (max-width: 1000px) {
-    section {
-      gap: 2rem;
-    }
-
-    article {
-      padding: 2rem 2rem 2rem 5rem;
-    }
-    h1 {
-      font-size: 40px;
-    }
     .thin {
       line-height: 90px;
     }
     img {
-      bottom: -3rem;
+      max-width: 400px;
+      margin-top: 20rem;
     }
   }
 
   @media (max-width: 800px) {
     section {
       background-color: var(--brand-color-primary);
+      gap: 0;
+    }
+    article {
+      padding: 2rem 2rem 2rem 1rem;
+    }
+    div {
+      justify-items: center;
     }
     img {
-      position: relative;
+      max-width: 300px;
+      margin: 0;
     }
+  }
 
-    div {
+  @media (max-width: 600px) {
+    section {
+      flex-wrap: wrap;
+    }
+    img {
+      max-width: 200px;
     }
   }
 </style>

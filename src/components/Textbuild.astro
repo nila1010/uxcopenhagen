@@ -1,6 +1,6 @@
 ---
 const { data } = Astro.props;
-import LinkButton from "./LinkButton.astro";
+import Button from "./Button.astro";
 console.log(data.site);
 ---
 
@@ -13,9 +13,10 @@ console.log(data.site);
       {data.section2 && <p>{data.section2}</p>}
       {data.section3 && <p>{data.section3}</p>}
       {data.section4 && <p>{data.section4}</p>}
-      {data.link1 && <LinkButton site={data.site} link={data.link1} />}
-      {data.link2 && <LinkButton link={data.link2} />}
-      {data.link3 && <LinkButton link={data.link3} />}
+
+      {data.link1 && <Button variant="primary" site={data.site} text={data.link1} />}
+      {data.link2 && <Button variant="primary" site={data.site} text={data.link2} />}
+      {data.link3 && <Button variant="primary" site={data.site} text={data.link3} />}
     </article>
   </div>
   <img class="img" class="push-right" src={data.image} alt="prev talks" />

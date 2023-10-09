@@ -11,7 +11,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Headline from "../components/Headline.astro";
 import Intro from "../components/Intro.astro";
 import Textbuild from "../components/Textbuild.astro";
-import LinkButton from "../components/LinkButton.astro";
+import Button from "../components/Button.astro";
 ---
 
 <MainLayout>
@@ -24,9 +24,9 @@ import LinkButton from "../components/LinkButton.astro";
         <p>As last year’s closing keynote, Angelos Arnis put it “There is no planet B.”</p>
       </div>
       <div class="link">
-        <LinkButton site="/aboutus" link="Read more" />
-        <LinkButton site="/tickets" link="Tickets" />
-        <LinkButton site="/speakers" link="Speakers" />
+        <Button variant="primary" site="/aboutus" text="Read more" />
+        <Button variant="primary" site="/tickets" text="Tickets" />
+        <Button variant="primary" site="/speakers" text="Speakers" />
       </div>
     </article>
   </Intro>

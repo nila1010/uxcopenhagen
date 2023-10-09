@@ -1,0 +1,38 @@
+---
+const { titel, firm, name, image, date} = Astro.props;
+---
+
+<article>
+    <h4 class="titel">{titel}</h4>
+    <h4 class="firm">{firm}</h4>
+    <img src={image}>
+    <h3>{name}</h3>
+    <h4 class="date">{date}</h4>
+</article>
+
+<style>
+
+article {
+    background-color: var(--brand-color-primary);
+}
+
+.titel {
+font-size:  var( --h4-bold-web);
+color: var(--text-color-alternativ);
+}
+
+.firm {
+    font-size:  var( --h4-thin-web);
+color: var(--text-color-alternativ);
+}
+
+.date {
+    font-size: var( --body-reg-info-web);
+    color: var(--text-color-alternativ);
+}
+
+img {
+    
+}
+
+</style>

@@ -18,11 +18,25 @@ import Speakercard from "../components/Speakercard.astro";
   <section class="margintop">
     <Headline overskrift_bold="Speakers" overskrift_thin="2024" />
   </section>
-  <MainLayout />
+<section class="speakercard_grid">
+    {data.map((speaker)=>{
+      return <Speakercard data={speaker}></Speakercard>})}
+      </section>
 </MainLayout>
 
 <style>
   .margintop {
     margin-top: 7rem;
   }
+
+  .speakercard_grid {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 12rem;
+  }
+
+
+
 </style>

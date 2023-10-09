@@ -1,39 +1,85 @@
 ---
-const { titel, firm, name, image, date} = Astro.props;
+const {data} = Astro.props;
+console.log(data)
+
 ---
 
 <article>
-    <h4 class="titel">{titel}</h4>
-    <h4 class="firm">{firm}</h4>
-    <img src={image}>
-    <h3>{name}</h3>
-    <h4 class="date">{date}</h4>
+    <div>
+    <h4 class="titel">{data.titel}</h4>
+    <h4 class="firm">{data.firm}</h4>
+    </div>
+    <img src={data.image}>
+    <div class="bund">
+    <h3>{data.name}</h3>
+    <h4 class="origin">{data.origin}</h4>
+    <h4 class="date">{data.date}</h4>
+    </div>
 </article>
 
 <style>
 
 article {
     background-color: var(--brand-color-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+   padding-left: 1rem;
+   padding-top: 1rem;
+   width: 20rem;
 }
+
+div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;  
+}
+
+.bund {
+    justify-self: flex-end;
+}
+
 
 .titel {
 font-size:  var( --h4-bold-web);
 color: var(--text-color-alternativ);
+
+
 }
 
 .firm {
     font-size:  var( --h4-thin-web);
 color: var(--text-color-alternativ);
+
+font-weight: 100;
 }
 
 .date {
     font-size: var( --body-reg-info-web);
     color: var(--text-color-alternativ);
+    font-weight: 400;
+   
+}
+
+h3 {
+    font-size: var(--h3-bold-web);
+    color: var(--text-color-alternativ);
+    
+}
+
+.origin {
+    font-size: var(--h4-thin-web);
+    color: var(--text-color-alternativ);
+ 
+     font-weight: 100;
 }
 
 img {
    border-radius: 50%; 
    filter: grayscale(100%);
+   max-width: 80%;
+   align-self: center;
+
 }
 
 </style>

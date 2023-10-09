@@ -1,21 +1,38 @@
 ---
-const {text} = Astro.props.text;
+const {variant, text} = Astro.props;
 ---
 
-<article>
-  <li><a href="/#">{text} <img src="/icons/pink_pil.svg" alt=""></a></li>
-</article>
+
+  <a class={variant} href="/#">{text} <img src="/icons/pink_pil.svg" alt=""></a>
+
 
 <style>
-img{
-    vertical-align: middle;
-    width: 3%;
-    margin-left: 0.3rem;
+  
+.primary{
+display: flex;
+gap: 1rem;
+align-items: center;
 }
-li{
-    list-style: none;
+.primary img{
+  width: 20%;
+  margin-top: 3px;
+}
+
+.secondary{
+  background-color: var(--link-color-main);
+  color: var(--arrow-color-alternativ);
+  display: flex;
+gap: 1rem;
+align-items: center;
+}
+.secondary img{
+  width: 20%;
+  margin-top: 3px;
+  content: url('/icons/hvid_pil.svg');
+}
+
+.arrow img{
+  width: 5%;
 }
 </style>
 
-
-<Button variant= primary text="Read more"/>

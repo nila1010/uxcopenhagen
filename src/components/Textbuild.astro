@@ -1,6 +1,7 @@
 ---
 const { data } = Astro.props;
 import LinkButton from "./LinkButton.astro";
+console.log(data.site);
 ---
 
 <section>
@@ -12,7 +13,7 @@ import LinkButton from "./LinkButton.astro";
       {data.section2 && <p>{data.section2}</p>}
       {data.section3 && <p>{data.section3}</p>}
       {data.section4 && <p>{data.section4}</p>}
-      {data.link1 && <LinkButton link={data.link1} />}
+      {data.link1 && <LinkButton site={data.site} link={data.link1} />}
       {data.link2 && <LinkButton link={data.link2} />}
       {data.link3 && <LinkButton link={data.link3} />}
     </article>

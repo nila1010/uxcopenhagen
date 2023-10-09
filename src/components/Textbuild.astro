@@ -1,5 +1,6 @@
 ---
 const { data } = Astro.props;
+import LinkButton from "./LinkButton.astro";
 ---
 
 <section>
@@ -11,7 +12,9 @@ const { data } = Astro.props;
       {data.section2 && <p>{data.section2}</p>}
       {data.section3 && <p>{data.section3}</p>}
       {data.section4 && <p>{data.section4}</p>}
-      <a href="/# ">{data.link1}</a>
+      {data.link1 && <LinkButton link={data.link1} />}
+      {data.link2 && <LinkButton link={data.link2} />}
+      {data.link3 && <LinkButton link={data.link3} />}
     </article>
   </div>
   <img class="img" class="push-right" src={data.image} alt="prev talks" />
@@ -126,8 +129,6 @@ const { data } = Astro.props;
   function appearOnScroll() {
     let textPosition = text.getBoundingClientRect().top;
     let windowHeight = window.innerHeight / 1.5;
-
-    console.log(windowHeight);
 
     if (windowHeight > textPosition) {
       text.classList.remove("push-left");

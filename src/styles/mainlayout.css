@@ -13,7 +13,7 @@
   --brand-color-primary: rgba(0, 0, 255, 1);
   --arrow-color-main: rgba(255, 87, 117, 1);
   --arrow-color-alternativ: rgba(255, 255, 255, 1);
-  --text-hover-color: rgba(49, 54, 64, 1);
+  --text-hover-color: #313640;
 
   /* Text-size styles */
   --h1-bold-web: 63px;

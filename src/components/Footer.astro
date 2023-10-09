@@ -8,7 +8,7 @@
     <p>email: hello@uxcopenhagen.com</p>
   </article>
   <article>
-    <img src="" alt="" /><img src="" alt="" /><img src="" alt="" /><img src="" alt="" /><img src="" alt="" />
+    <img src="../../public/icons/facebook.svg" alt="facebook icon" /><img src="../../public/icons/instagram.svg" alt="instagram icon" /><img src="../../public/icons/linkedin.svg" alt="linkedin icon" /><img src="../../public/icons/twitter.svg" alt="twitter icon" /><img src="../../public/icons/youtube.svg" alt="youtube icon" />
   </article>
 </section>
 
@@ -17,8 +17,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 0 45px;
+
     gap: 61px;
+  }
+
+  img {
+    min-width: 30%;
   }
 
   article:nth-child(1) {
@@ -34,9 +38,10 @@
     gap: 1rem;
   }
 
-  article:nth-child(1) {
+  article:nth-child(3) {
     display: flex;
     justify-content: space-around;
+    gap: 1rem;
   }
 
   p {

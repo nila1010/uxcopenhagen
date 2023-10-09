@@ -12,7 +12,6 @@ import Headline from "../components/Headline.astro";
 import Intro from "../components/Intro.astro";
 import Textbuild from "../components/Textbuild.astro";
 import LinkButton from "../components/LinkButton.astro";
-import Button from "../components/Button.astro"
 ---
 
 <MainLayout>
@@ -40,3 +39,39 @@ import Button from "../components/Button.astro"
     }
   </section>
 </MainLayout>
+
+<style>
+  /*STYLE TIL INTRO
+  -------------------*/
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .block {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .link {
+    display: flex;
+    gap: 30px;
+  }
+  p {
+    color: var(--text-color-main);
+    max-width: 65ch;
+    font-weight: 400;
+  }
+
+  h1 {
+    max-width: 15ch;
+  }
+
+  span {
+    font-weight: 100;
+  }
+
+  /*----------------*/
+</style>

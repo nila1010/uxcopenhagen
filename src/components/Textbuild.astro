@@ -131,7 +131,7 @@ import LinkButton from "./LinkButton.astro";
 
   window.addEventListener("scroll", appearOnScroll);
 
-  function appearOnScroll() {
+  function appearOnScroll(e) {
     let textPosition = text.getBoundingClientRect().top;
     let windowHeight = window.innerHeight / 1.5;
 

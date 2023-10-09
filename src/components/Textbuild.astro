@@ -6,7 +6,7 @@ console.log(data.site);
 
 <section>
   <div>
-    <article class="text" class="push-left">
+    <article class="text push-left">
       <h1 class="thin">{data.titelthin}</h1>
       <h1>{data.titelbold}</h1>
       {data.section1 && <p>{data.section1}</p>}
@@ -19,114 +19,114 @@ console.log(data.site);
     </article>
   </div>
   <img class="img" class="push-right" src={data.image} alt="prev talks" />
-</section>
 
-<style>
-  section {
-    display: flex;
-    justify-content: space-between;
-    gap: 8rem;
-    margin-bottom: 12rem;
-  }
-
-  img {
-    max-width: 500px;
-    align-self: end;
-    opacity: 1;
-    transform: translateX(0);
-    transition: all 0.5s ease-in-out;
-    margin-top: 12rem;
-  }
-
-  article {
-    max-height: fit-content;
-    background-color: var(--brand-color-primary);
-    border-radius: 0 50px 50px 0;
-    padding: 2rem 2rem 2rem 8rem;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    opacity: 1;
-    transform: translateX(0);
-    transition: all 0.5s ease-in-out;
-  }
-
-  section:nth-child(even) div:first-child {
-    order: 1;
-  }
-
-  section:nth-child(even) article {
-    border-radius: 50px 0 0 50px;
-  }
-
-  h1 {
-    color: var(--text-color-alternativ);
-  }
-
-  .thin {
-    font-weight: 100;
-    height: 40px;
-  }
-
-  p {
-    color: var(--text-color-alternativ);
-    font-weight: 100;
-    max-width: 65ch;
-  }
-
-  .push-right {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-
-  .push-left {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-
-  @media (max-width: 1000px) {
-    .thin {
-      line-height: 90px;
-      margin-top: -2.5rem;
-    }
-    img {
-      max-width: 400px;
-      margin-top: 20rem;
-    }
-  }
-
-  @media (max-width: 800px) {
+  <style>
     section {
-      background-color: var(--brand-color-primary);
-      gap: 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 8rem;
+      margin-bottom: 12rem;
     }
+
+    img {
+      max-width: 500px;
+      align-self: end;
+      opacity: 1;
+      transform: translateX(0);
+      transition: all 0.5s ease-in-out;
+      margin-top: 12rem;
+    }
+
     article {
-      padding: 2rem 2rem 2rem 1rem;
+      max-height: fit-content;
+      background-color: var(--brand-color-primary);
+      border-radius: 0 50px 50px 0;
+      padding: 2rem 2rem 2rem 8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      opacity: 1;
+      transform: translateX(0);
+      transition: all 0.5s ease-in-out;
     }
-    div {
-      justify-items: center;
-    }
-    img {
-      max-width: 300px;
-      margin: 0;
-    }
-  }
 
-  @media (max-width: 600px) {
-    section {
-      flex-wrap: wrap;
+    section:nth-child(even) div:first-child {
+      order: 1;
+    }
+
+    section:nth-child(even) article {
+      border-radius: 50px 0 0 50px;
+    }
+
+    h1 {
+      color: var(--text-color-alternativ);
+    }
+
+    .thin {
+      font-weight: 100;
+      height: 40px;
     }
 
     p {
-      font-weight: 400;
+      color: var(--text-color-alternativ);
+      font-weight: 100;
+      max-width: 65ch;
     }
-    img {
-      max-width: 390px;
-    }
-  }
-</style>
 
-<script>
+    .push-right {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+
+    .push-left {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+
+    @media (max-width: 1000px) {
+      .thin {
+        line-height: 90px;
+        margin-top: -2.5rem;
+      }
+      img {
+        max-width: 400px;
+        margin-top: 20rem;
+      }
+    }
+
+    @media (max-width: 800px) {
+      section {
+        background-color: var(--brand-color-primary);
+        gap: 0;
+      }
+      article {
+        padding: 2rem 2rem 2rem 1rem;
+      }
+      div {
+        justify-items: center;
+      }
+      img {
+        max-width: 300px;
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        flex-wrap: wrap;
+      }
+
+      p {
+        font-weight: 400;
+      }
+      img {
+        max-width: 390px;
+      }
+    }
+  </style>
+
+  <script>
+    /*
   const text = document.querySelector(".text");
   const img = document.querySelector(".img");
 
@@ -142,6 +142,21 @@ console.log(data.site);
     } else {
       text.classList.add("push-left");
       img.classList.add("push-right");
-    }
-  }
-</script>
+    }*/
+
+    const observer = new IntersectionObserver((entries) => {
+      // Loop over the entries
+      entries.forEach((entry) => {
+        // If the element is visible
+        if (entry.isIntersecting) {
+          // Add the animation class
+          entry.target.classList.remove("push-left");
+        } else {
+          entry.target.classList.add("push-left");
+        }
+      });
+    });
+
+    observer.observe(document.querySelector(".text"));
+  </script>
+</section>

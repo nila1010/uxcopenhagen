@@ -34,6 +34,8 @@
   /* Font styles */
   --h1-body-font: "Inter", Arial;
   --h2-body-font: "Inter", Arial;
+  --h3-body-font: "Inter", Arial;
+  --h4-body-font: "Inter", Arial;
   --link-font: "Inter", Arial;
   --body-p-font: "Inter", Arial;
 }
@@ -63,6 +65,16 @@ h2 {
   font-family: var(--h2-body-font);
   font-size: var(--h2-bold-web);
   font-weight: 700;
+}
+
+h3 {
+  font-family: var(--h3-body-font);
+  font-size: var(--h3-bold-web);
+  font-weight: 700;
+}
+
+h4 {
+  font-family: var(--h4-body-font);
 }
 
 a {

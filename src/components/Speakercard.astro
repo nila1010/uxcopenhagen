@@ -5,12 +5,12 @@ console.log(data)
 ---
 
 <article>
-    <div>
+    <div class="textcontainer">
     <h4 class="titel">{data.titel}</h4>
     <h4 class="firm">{data.firm}</h4>
     </div>
     <img src={data.image}>
-    <div class="bund">
+    <div class="textcontainer">
     <h3>{data.name}</h3>
     <h4 class="origin">{data.origin}</h4>
     <h4 class="date">{data.date}</h4>
@@ -23,10 +23,10 @@ article {
     background-color: var(--brand-color-primary);
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-   padding-left: 1rem;
-   padding-top: 1rem;
+    gap: 4rem;
+ padding: 1rem 0;
    width: 20rem;
+   justify-content: space-between;
 }
 
 div {
@@ -35,8 +35,8 @@ div {
     gap: 0.5rem;  
 }
 
-.bund {
-    justify-self: flex-end;
+.textcontainer {
+padding-left: 1rem;
 }
 
 
@@ -75,9 +75,10 @@ h3 {
 }
 
 img {
+    width: 250px;
+    height: 250px;
    border-radius: 50%; 
    filter: grayscale(100%);
-   max-width: 80%;
    align-self: center;
 
 }

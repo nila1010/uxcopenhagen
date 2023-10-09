@@ -5,5 +5,14 @@ import Speakercard from "../components/Speakercard.astro";
 ---
 
 <MainLayout>
-<Headline slot="skiller"overskrift_bold="Speakers" overskrift_thin="2024"></Headline>
-<MainLayout />
+  <section class="margintop">
+    <Headline overskrift_bold="Speakers" overskrift_thin="2024" />
+  </section>
+  <MainLayout />
+</MainLayout>
+
+<style>
+  .margintop {
+    margin-top: 7rem;
+  }
+</style>

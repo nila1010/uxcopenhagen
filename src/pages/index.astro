@@ -1,9 +1,77 @@
 ---
+const response = await fetch("https://fcjitciuvvjnpyohjrbx.supabase.co/rest/v1/index", {
+  method: "GET",
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZjaml0Y2l1dnZqbnB5b2hqcmJ4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTY0OTY1NDQsImV4cCI6MjAxMjA3MjU0NH0.hqEiYxGAHflWDfWpEC53ykk3Y2DA57jMZbBYXMcWYr8",
+  },
+});
+const data = await response.json();
+
 import MainLayout from "../layouts/MainLayout.astro";
 import Headline from "../components/Headline.astro";
+import Intro from "../components/Intro.astro";
+import Textbuild from "../components/Textbuild.astro";
+import LinkButton from "../components/LinkButton.astro";
 ---
 
 <MainLayout>
-  
-<Headline textbox={true} slot="skiller"overskrift_bold="Call for speakers" overskrift_thin="2024"  text="Our call for speakers is open each year from June 1 - Sep 1. Please send an email to conference curator Helle Martens with our proposal: hello@uxcopenhagen.com."></Headline>
+  <Intro>
+    <article class="intro">
+      <h1>Degrowth <span>&amp;</span> Consumerism</h1>
+      <div class="block">
+        <p>The theme for UX Copenhagen® 2024 is “Degrowth & Consumerism”</p>
+        <p>For far too long, we have been living in a world that applauds and encourages continuous growth, expansion, selling, and manipulation. It’s a world of over production and over consumption, but we’re running out of resources. Business as usual will not cut it anymore.</p>
+        <p>As last year’s closing keynote, Angelos Arnis put it “There is no planet B.”</p>
+      </div>
+      <div class="link">
+        <LinkButton site="/aboutus" link="Read more" />
+        <LinkButton site="/tickets" link="Tickets" />
+        <LinkButton site="/speakers" link="Speakers" />
+      </div>
+    </article>
+  </Intro>
+  <Headline textbox={true} overskrift_bold="Call for speakers" overskrift_thin="2024" text="Our call for speakers is open each year from June 1 - Sep 1. Please send an email to conference curator Helle Martens with our proposal: hello@uxcopenhagen.com." />
+  <section>
+    {
+      data.map((text) => {
+        return <Textbuild data={text} />;
+      })
+    }
+  </section>
 </MainLayout>
+
+<style>
+  /*STYLE TIL INTRO
+  -------------------*/
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .block {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .link {
+    display: flex;
+    gap: 30px;
+  }
+  p {
+    color: var(--text-color-main);
+    max-width: 65ch;
+    font-weight: 400;
+  }
+
+  h1 {
+    max-width: 15ch;
+  }
+
+  span {
+    font-weight: 100;
+  }
+
+  /*----------------*/
+</style>

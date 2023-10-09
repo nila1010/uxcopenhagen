@@ -1,59 +1,34 @@
 ---
-const { titel, block1, block2, block3, link1, link2, link3 } = Astro.props;
+
 ---
 
 <section>
   <video autoplay src="/main_rotate_1.mp4" loop="auto"></video>
-  <article>
-    <h1>{titel}</h1>
-    <div class="block">
-      <p>{block1}</p>
-      <p>{block2}</p>
-      <p>{block3}</p>
-    </div>
-    <div class="link">
-      <a href="/#">{link1}</a>
-      <a href="/#">{link2}</a>
-      <a href="/#">{link3}</a>
-    </div>
-  </article>
+  <slot />
 </section>
 
 <style>
   section {
     margin: 4rem 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    gap: 6rem;
   }
-
-  article {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-
   video {
+    margin-left: 5rem;
     min-width: 20%;
   }
-  .block {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
 
-  .link {
-    display: flex;
-    gap: 30px;
-  }
-  p {
-    color: var(--text-color-main);
-    max-width: 65ch;
-    font-weight: 400;
-  }
+  @media (max-width: 600px) {
+    section {
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
 
-  h1 {
-    font-size: var(--h1-bold-web);
-    max-width: 15ch;
+    video {
+      margin: 0;
+      max-width: 350px;
+    }
   }
 </style>

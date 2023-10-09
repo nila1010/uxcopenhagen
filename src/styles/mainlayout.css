@@ -13,13 +13,17 @@
   --brand-color-primary: rgba(0, 0, 255, 1);
   --arrow-color-main: rgba(255, 87, 117, 1);
   --arrow-color-alternativ: rgba(255, 255, 255, 1);
-  --text-hover-color: rgba(49, 54, 64, 1);
+  --text-hover-color: #313640;
 
   /* Text-size styles */
   --h1-bold-web: 63px;
   --h1-thin-web: 63px;
+  --h1-generel-table: 40px;
+  --h1-generel-mobil: 30px;
   --h2-bold-web: 45px;
   --h2-thin-web: 63px;
+  --h2-generel-table: 40px;
+  --h2-generel-mobil: 25px;
   --h3-bold-web: 27px;
   --h3-thin-web: 27px;
   --h4-bold-web: 21px;
@@ -27,9 +31,14 @@
   --body-footer-web: 16px;
   --body-reg-info-web: 20px;
   --body-thin-web: 14px;
+  --body-generel-table: 12px;
   --link-reg-web: 22px;
+  --link-reg-mobil: 20px;
   --link-reg-nav-web: 20px;
   --link-reg-ticket-web: 16px;
+
+  --line-hight-generel-p: 24px;
+  --line-hight-mobil-p: 16px;
 
   /* Font styles */
   --h1-body-font: "Inter", Arial;
@@ -56,7 +65,12 @@ main {
   flex-grow: 1;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
 h1 {
+  font-size: var(--h1-bold-web);
   font-family: var(--h1-body-font);
   font-weight: 700;
 }
@@ -82,6 +96,7 @@ a {
   font-size: var(--link-reg-web);
   text-decoration: none;
   color: var(--link-color-main);
+  max-width: fit-content;
 }
 
 a:hover {
@@ -92,7 +107,7 @@ p {
   font-family: var(--body-p-font);
   color: var(--text-color-alternativ);
   font-size: var(--body-thin-web);
-  line-height: 24px;
+  line-height: var(--line-hight-generel-p);
 }
 
 /*FOOTER
@@ -100,4 +115,36 @@ p {
 footer {
   background-color: var(--banner-color);
   padding: 2rem 0;
+}
+
+/*MEDIA 1000px, 800px, 600px
+------------------------------*/
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: var(--h1-generel-table);
+  }
+}
+
+@media (max-width: 800px) {
+  h2 {
+    font-size: var(--h2-generel-table);
+  }
+  p {
+    font-size: var(--body-generel-table);
+    line-height: var(--line-hight-mobil-p);
+  }
+  a {
+    font-size: var(--link-reg-mobil);
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: var(--h1-generel-mobil);
+  }
+
+  h2 {
+    font-size: var(--h2-generel-mobil);
+  }
 }

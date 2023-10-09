@@ -1,0 +1,21 @@
+---
+const {text} = Astro.props.text;
+---
+
+<article>
+  <li><a href="/#">{text} <img src="/icons/pink_pil.svg" alt=""></a></li>
+</article>
+
+<style>
+img{
+    vertical-align: middle;
+    width: 3%;
+    margin-left: 0.3rem;
+}
+li{
+    list-style: none;
+}
+</style>
+
+
+<Button variant= primary text="Read more"/>

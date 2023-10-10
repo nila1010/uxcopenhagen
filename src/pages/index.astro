@@ -75,20 +75,3 @@ import Button from "../components/Button.astro";
 
   /*----------------*/
 </style>
-
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    // Loop over the entries
-    entries.forEach((entry) => {
-      // If the element is visible
-      if (entry.isIntersecting) {
-        // Add the animation class
-        entry.target.classList.remove("push-left");
-      } else {
-        entry.target.classList.add("push-left");
-      }
-    });
-  });
-
-  observer.observe(document.querySelector(".text"));
-</script>

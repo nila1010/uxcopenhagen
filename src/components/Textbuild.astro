@@ -19,114 +19,130 @@ import Button from "./Button.astro";
     </article>
   </div>
   <img class="img" class="push-right" src={data.image} alt="prev talks" />
+</section>
+<style>
+  section {
+    display: flex;
+    justify-content: space-between;
+    gap: 8rem;
+    margin-bottom: 12rem;
+  }
 
-  <style>
-    section {
-      display: flex;
-      justify-content: space-between;
-      gap: 8rem;
-      margin-bottom: 12rem;
-    }
+  img {
+    max-width: 500px;
+    align-self: end;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
+    margin-top: 12rem;
+  }
 
-    img {
-      max-width: 500px;
-      align-self: end;
-      opacity: 1;
-      transform: translateX(0);
-      transition: all 0.5s ease-in-out;
-      margin-top: 12rem;
-    }
+  article {
+    max-height: fit-content;
+    background-color: var(--brand-color-primary);
+    border-radius: 0 50px 50px 0;
+    padding: 2rem 2rem 2rem 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
+  }
 
-    article {
-      max-height: fit-content;
-      background-color: var(--brand-color-primary);
-      border-radius: 0 50px 50px 0;
-      padding: 2rem 2rem 2rem 8rem;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      opacity: 1;
-      transform: translateX(0);
-      transition: all 0.5s ease-in-out;
-    }
+  section:nth-child(even) div:first-child {
+    order: 1;
+  }
 
-    section:nth-child(even) div:first-child {
-      order: 1;
-    }
+  section:nth-child(even) article {
+    border-radius: 50px 0 0 50px;
+  }
 
-    section:nth-child(even) article {
-      border-radius: 50px 0 0 50px;
-    }
+  h1 {
+    color: var(--text-color-alternativ);
+  }
 
-    h1 {
-      color: var(--text-color-alternativ);
-    }
+  .thin {
+    font-weight: 100;
+    height: 40px;
+  }
 
+  p {
+    color: var(--text-color-alternativ);
+    font-weight: 100;
+    max-width: 65ch;
+  }
+
+  .push-right {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  .push-left {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  @media (max-width: 1000px) {
     .thin {
-      font-weight: 100;
-      height: 40px;
+      line-height: 90px;
+      margin-top: -2.5rem;
+    }
+    img {
+      max-width: 400px;
+      margin-top: 20rem;
+    }
+  }
+
+  @media (max-width: 800px) {
+    section {
+      background-color: var(--brand-color-primary);
+      gap: 0;
+    }
+    article {
+      padding: 2rem 2rem 2rem 1rem;
+    }
+    div {
+      justify-items: center;
+    }
+    img {
+      max-width: 300px;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    section {
+      flex-wrap: wrap;
     }
 
     p {
-      color: var(--text-color-alternativ);
-      font-weight: 100;
-      max-width: 65ch;
+      font-weight: 400;
     }
-
-    .push-right {
-      opacity: 0;
-      transform: translateX(50px);
+    img {
+      max-width: 390px;
     }
+  }
+</style>
 
-    .push-left {
-      opacity: 0;
-      transform: translateX(-50px);
-    }
+<script>
+  /*
+  window.addEventListener("scroll", reveal);
 
-    @media (max-width: 1000px) {
-      .thin {
-        line-height: 90px;
-        margin-top: -2.5rem;
-      }
-      img {
-        max-width: 400px;
-        margin-top: 20rem;
-      }
-    }
+  function reveal() {
+    var reveals = document.querySelectorAll(".text");
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
 
-    @media (max-width: 800px) {
-      section {
-        background-color: var(--brand-color-primary);
-        gap: 0;
-      }
-      article {
-        padding: 2rem 2rem 2rem 1rem;
-      }
-      div {
-        justify-items: center;
-      }
-      img {
-        max-width: 300px;
-        margin: 0;
+      if (elementTop < windowHeight) {
+        reveals[i].classList.add("push-left");
+      } else {
+        reveals[i].classList.remove("push-left");
       }
     }
-
-    @media (max-width: 600px) {
-      section {
-        flex-wrap: wrap;
-      }
-
-      p {
-        font-weight: 400;
-      }
-      img {
-        max-width: 390px;
-      }
-    }
-  </style>
-
-  <script>
-    /*
+  }
+  /*
   const text = document.querySelector(".text");
   const img = document.querySelector(".img");
 
@@ -143,20 +159,19 @@ import Button from "./Button.astro";
       text.classList.add("push-left");
       img.classList.add("push-right");
     }*/
-
-    const observer = new IntersectionObserver((entries) => {
-      // Loop over the entries
-      entries.forEach((entry) => {
-        // If the element is visible
-        if (entry.isIntersecting) {
-          // Add the animation class
-          entry.target.classList.remove("push-left");
-        } else {
-          entry.target.classList.add("push-left");
-        }
-      });
+  /*
+  const observer = new IntersectionObserver((entries) => {
+    // Loop over the entries
+    entries.forEach((entry) => {
+      // If the element is visible
+      if (entry.isIntersecting) {
+        // Add the animation class
+        entry.target.classList.remove("push-left");
+      } else {
+        entry.target.classList.add("push-left");
+      }
     });
-
-    observer.observe(document.querySelector(".text"));
-  </script>
-</section>
+  });
+  observer.observe(document.querySelector(".text"));
+  */
+</script>

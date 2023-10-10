@@ -6,22 +6,23 @@ const response = await fetch("https://fcjitciuvvjnpyohjrbx.supabase.co/rest/v1/s
   },
 });
 const data = await response.json();
-console.log(data)
 
 import MainLayout from "../layouts/MainLayout.astro";
-import Headline from "../components/Headline.astro"
+import Headline from "../components/Headline.astro";
 import Speakercard from "../components/Speakercard.astro";
-
 ---
 
 <MainLayout>
   <section class="margintop">
     <Headline overskrift_bold="Speakers" overskrift_thin="2024" />
   </section>
-<section class="speakercard_grid">
-    {data.map((speaker)=>{
-      return <Speakercard data={speaker}></Speakercard>})}
-      </section>
+  <section class="speakercard_grid">
+    {
+      data.map((speaker) => {
+        return <Speakercard data={speaker} />;
+      })
+    }
+  </section>
 </MainLayout>
 
 <style>
@@ -36,7 +37,4 @@ import Speakercard from "../components/Speakercard.astro";
     justify-content: center;
     margin-bottom: 12rem;
   }
-
-
-
 </style>

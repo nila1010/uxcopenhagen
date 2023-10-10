@@ -1,23 +1,23 @@
 ---
 import Button from "./Button.astro";
-const { date } = Astro.props;
+const { data } = Astro.props;
 ---
 
 <section>
   <article>
-    <img src="/imgs/ticketimg.webp" alt="theme image" />
-    <h3>bold</h3>
+    <img src={data.image} alt="theme image" />
+    <h3 class="h3bold">{data.name}</h3>
     <div>
-      <h3>thin</h3>
-      <h3>thin</h3>
+      <h3 class="h3thin">{data.place}</h3>
+      <h3 class="h3thin">{data.date}</h3>
     </div>
     <div>
-      <h4>thin</h4>
-      <h3>bold</h3>
+      <h4 class="h4thin">(Early bird price)</h4>
+      <h3 class="h3bold">{data.price} ,-</h3>
     </div>
-    <Button variant="arrow" />
+    <Button variant="primary" text={data.link} />
   </article>
-  <Button varian="secondary" />
+  <Button variant="secondary" text={data.link2} />
 </section>
 
 <style>
@@ -31,5 +31,10 @@ const { date } = Astro.props;
     flex-direction: column;
     background-color: var(--brand-color-primary);
     color: var(--text-color-alternativ);
+    width: 20rem;
+    height: 550px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
   }
 </style>

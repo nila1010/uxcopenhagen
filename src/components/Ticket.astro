@@ -1,16 +1,15 @@
 ---
 import Button from "./Button.astro";
+const { date } = Astro.props;
 ---
 
 <section>
   <article>
-    <img src="" alt="theme image" />
+    <img src="/imgs/ticketimg.webp" alt="theme image" />
+    <h3>bold</h3>
     <div>
-      <h3>bold</h3>
-      <div>
-        <h3>thin</h3>
-        <h3>thin</h3>
-      </div>
+      <h3>thin</h3>
+      <h3>thin</h3>
     </div>
     <div>
       <h4>thin</h4>
@@ -20,3 +19,17 @@ import Button from "./Button.astro";
   </article>
   <Button varian="secondary" />
 </section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--brand-color-primary);
+    color: var(--text-color-alternativ);
+  }
+</style>

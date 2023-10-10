@@ -13,8 +13,8 @@ import Button from "./Button.astro";
     </div>
     <h3 class="h3thin">om dem thin</h3>
     <div class="linkbox">
-      <Button />
-      <Button />
+      <Button text="Read more" />
+      <Button text="Read more" />
     </div>
   </article>
 </section>
@@ -22,6 +22,12 @@ import Button from "./Button.astro";
 <style>
   section {
     display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+
+  img {
+    max-width: 500px;
   }
 
   article {
@@ -29,6 +35,9 @@ import Button from "./Button.astro";
     background-color: var(--brand-color-primary);
     display: flex;
     flex-direction: column;
+    border-radius: 50px 0 0 50px;
+    padding: 2rem;
+    width: 40rem;
   }
 
   .speakerinfo {

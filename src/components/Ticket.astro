@@ -13,7 +13,7 @@ const { data } = Astro.props;
     </div>
     <div>
       <h4 class="h4thin">(Early bird price)</h4>
-      <h3 class="h3bold">{data.price} ,-</h3>
+      {data.price && <h3 class="h3bold">{data.price}</h3>}
     </div>
     <Button variant="primary" text={data.link} />
   </article>
@@ -33,7 +33,7 @@ const { data } = Astro.props;
     color: var(--text-color-alternativ);
     width: 20rem;
     height: 550px;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
   }

@@ -1,8 +1,7 @@
 ---
-const {data} = Astro.props;
-console.log(data)
-import Button from "../components/Button.astro"
+const { data } = Astro.props;
 
+import Button from "../components/Button.astro";
 ---
 
 <article>
@@ -15,11 +14,10 @@ import Button from "../components/Button.astro"
     <h3>{data.name}</h3>
     <h4 class="origin">{data.origin}</h4>
     <h4 class="date">{data.date}</h4>
-    </div>
-    <div class="knap">
-     <Button variant="arrow"></Button>
-     </div>
-   
+  </div>
+  <div class="knap">
+    <Button variant="arrow" />
+  </div>
 </article>
 
 <style>
@@ -46,9 +44,8 @@ import Button from "../components/Button.astro"
 
   .knap {
     position: absolute;
- bottom: 20px;
- right: 20px;
- 
+    bottom: 20px;
+    right: 20px;
   }
 
   .titel {

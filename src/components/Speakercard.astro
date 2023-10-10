@@ -1,6 +1,7 @@
 ---
 const {data} = Astro.props;
 console.log(data)
+import Button from "../components/Button.astro"
 
 ---
 
@@ -14,6 +15,7 @@ console.log(data)
     <h3>{data.name}</h3>
     <h4 class="origin">{data.origin}</h4>
     <h4 class="date">{data.date}</h4>
+     <Button variant= "arrow"/>
     </div>
 </article>
 

@@ -1,38 +1,36 @@
 ---
-const {variant, text} = Astro.props;
+const { variant, text, site } = Astro.props;
 ---
 
-
-  <a class={variant} href="/#">{text} <img src="/icons/pink_pil.svg" alt=""></a>
-
+<a class={variant} href={site}>{text} <img src="/arrow_p.svg" alt="" /></a>
 
 <style>
-  
-.primary{
-display: flex;
-gap: 1rem;
-align-items: center;
-}
-.primary img{
-  width: 20%;
-  margin-top: 3px;
-}
+  .primary {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+  .primary img {
+    width: 25px;
+    height: 100%;
+    margin-top: 3px;
+  }
 
-.secondary{
-  background-color: var(--link-color-main);
-  color: var(--arrow-color-alternativ);
-  display: flex;
-gap: 1rem;
-align-items: center;
-}
-.secondary img{
-  width: 20%;
-  margin-top: 3px;
-  content: url('/icons/hvid_pil.svg');
-}
+  .secondary {
+    background-color: var(--link-color-main);
+    color: var(--arrow-color-alternativ);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .secondary img {
+    width: 25px;
+    height: 100%;
+    margin-top: 3px;
+    content: url("/public/arrow_w.svg");
+  }
 
-.arrow img{
-  width: 5%;
-}
+  .arrow img {
+    width: 5%;
+  }
 </style>
-

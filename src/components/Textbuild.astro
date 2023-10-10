@@ -1,25 +1,25 @@
 ---
 const { data } = Astro.props;
-import LinkButton from "./LinkButton.astro";
+import Button from "./Button.astro";
 ---
 
 <section>
   <div>
-    <article class="text" class="push-left">
+    <article class="text push-left">
       <h1 class="thin">{data.titelthin}</h1>
       <h1>{data.titelbold}</h1>
       {data.section1 && <p>{data.section1}</p>}
       {data.section2 && <p>{data.section2}</p>}
       {data.section3 && <p>{data.section3}</p>}
       {data.section4 && <p>{data.section4}</p>}
-      {data.link1 && <LinkButton link={data.link1} />}
-      {data.link2 && <LinkButton link={data.link2} />}
-      {data.link3 && <LinkButton link={data.link3} />}
+
+      {data.link1 && <Button variant="primary" site={data.site} text={data.link1} />}
+      {data.link2 && <Button variant="primary" site={data.site} text={data.link2} />}
+      {data.link3 && <Button variant="primary" site={data.site} text={data.link3} />}
     </article>
   </div>
   <img class="img" class="push-right" src={data.image} alt="prev talks" />
 </section>
-
 <style>
   section {
     display: flex;
@@ -126,6 +126,23 @@ import LinkButton from "./LinkButton.astro";
 </style>
 
 <script>
+  /*
+  window.addEventListener("scroll", reveal);
+
+  function reveal() {
+    var reveals = document.querySelectorAll(".text");
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+
+      if (elementTop < windowHeight) {
+        reveals[i].classList.add("push-left");
+      } else {
+        reveals[i].classList.remove("push-left");
+      }
+    }
+  }
+  /*
   const text = document.querySelector(".text");
   const img = document.querySelector(".img");
 
@@ -141,6 +158,20 @@ import LinkButton from "./LinkButton.astro";
     } else {
       text.classList.add("push-left");
       img.classList.add("push-right");
-    }
-  }
+    }*/
+  /*
+  const observer = new IntersectionObserver((entries) => {
+    // Loop over the entries
+    entries.forEach((entry) => {
+      // If the element is visible
+      if (entry.isIntersecting) {
+        // Add the animation class
+        entry.target.classList.remove("push-left");
+      } else {
+        entry.target.classList.add("push-left");
+      }
+    });
+  });
+  observer.observe(document.querySelector(".text"));
+  */
 </script>

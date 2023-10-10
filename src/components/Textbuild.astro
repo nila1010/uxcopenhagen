@@ -18,7 +18,7 @@ import Button from "./Button.astro";
       {data.link3 && <Button variant="primary" site={data.site} text={data.link3} />}
     </article>
   </div>
-  <img class="img" class="push-right" src={data.image} alt="prev talks" />
+  <img class="text" class="push-right" src={data.image} alt="prev talks" />
 </section>
 <style>
   section {
@@ -126,6 +126,24 @@ import Button from "./Button.astro";
 </style>
 
 <script>
+  const animationElements = document.querySelectorAll(".text");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove("push-left");
+        } else entry.target.classList.add("push-left");
+      });
+    },
+    {
+      threshold: 0.3,
+    }
+  );
+  for (let i = 0; i < animationElements.length; i++) {
+    const element = animationElements[i];
+    observer.observe(element);
+  }
   /*
   window.addEventListener("scroll", reveal);
 

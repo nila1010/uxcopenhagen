@@ -1,0 +1,56 @@
+---
+import Button from "./Button.astro";
+---
+
+<section>
+  <img src="/prevtalks.png" alt="" />
+  <article>
+    <div class="speakerinfo">
+      <h3 class="h3thin">Speaker 2024 thin</h3>
+      <h2>Navn bold</h2>
+      <h3 class="h3bold">stilling bold</h3>
+      <h3 class="h3thin">by thin</h3>
+    </div>
+    <h3 class="h3thin">om dem thin</h3>
+    <div class="linkbox">
+      <Button text="Read more" />
+      <Button text="Read more" />
+    </div>
+  </article>
+</section>
+
+<style>
+  section {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+
+  img {
+    max-width: 500px;
+  }
+
+  article {
+    color: var(--text-color-alternativ);
+    background-color: var(--brand-color-primary);
+    display: flex;
+    flex-direction: column;
+    border-radius: 50px 0 0 50px;
+    padding: 2rem;
+    width: 40rem;
+  }
+
+  .speakerinfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .linkbox {
+    display: flex;
+  }
+
+  .h3thin {
+    font-weight: 100;
+  }
+</style>

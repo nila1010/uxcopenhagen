@@ -2,7 +2,7 @@
 const { variant, text, site } = Astro.props;
 ---
 
-<a class={variant} href={site}>{text} <img src="/arrow_p.svg" alt="" /></a>
+<a class={variant} href={site}>{text} <img src="/arrow_p.svg" alt={text + "Button"} /></a>
 
 <style>
   .primary {
@@ -31,6 +31,6 @@ const { variant, text, site } = Astro.props;
   }
 
   .arrow img {
-    width: 5%;
+    width: 25px;
   }
 </style>

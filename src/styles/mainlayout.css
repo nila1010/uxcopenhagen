@@ -144,9 +144,6 @@ footer {
     font-size: var(--h2-generel-table);
   }
 
-  h3 {
-    font-size: var(--h3-generel-tablet);
-  }
   p {
     font-size: var(--body-generel-table);
     line-height: var(--line-hight-mobil-p);

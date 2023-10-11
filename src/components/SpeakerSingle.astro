@@ -86,4 +86,48 @@ margin-top: 20rem;
     font-size: var(--h3-bold-web);
   }
 
+@media (max-width: 1000px) {
+    img {
+      max-width: 400px;
+      margin-top: 20rem;
+    }
+
+    article {
+      max-width: 500px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    section {
+      background-color: var(--brand-color-primary);
+      gap: 0;
+    }
+    article {
+      padding: 2rem 2rem 2rem 1rem;
+      max-width: 400px;
+    }
+    div {
+      justify-items: center;
+    }
+    img {
+      max-width: 300px;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    section {
+      flex-wrap: wrap;
+    }
+
+
+    article {
+      max-width: 400px;
+    }
+
+    img {
+      max-width: 390px;
+    }
+  }
+
 </style>

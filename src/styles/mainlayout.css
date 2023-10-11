@@ -7,7 +7,7 @@
 /* Color styles */
 :root {
   --text-color-main: rgba(0, 0, 0, 1);
-  --link-color-main: rgba(255, 87, 117, 1);
+  --link-color-main: #ff5775;
   --banner-color: rgba(49, 54, 64, 1);
   --text-color-alternativ: rgba(255, 255, 255, 1);
   --brand-color-primary: rgba(0, 0, 255, 1);
@@ -96,10 +96,6 @@ a {
   font-size: var(--link-reg-web);
   text-decoration: none;
   color: var(--link-color-main);
-}
-
-a:hover {
-  color: var(--text-hover-color);
 }
 
 p {

@@ -14,23 +14,33 @@ const { variant, text, site } = Astro.props;
     width: 25px;
     height: 100%;
     margin-top: 3px;
-  }
 
+  }
   .secondary {
     background-color: var(--link-color-main);
     color: var(--arrow-color-alternativ);
     display: flex;
     gap: 1rem;
     align-items: center;
+    width: 20rem;
+    height: 4rem;
+    justify-content: center;
   }
   .secondary img {
     width: 25px;
     height: 100%;
     margin-top: 3px;
-    content: url("/public/arrow_w.svg");
+    content: url("/arrow_w.svg");
   }
 
   .arrow img {
     width: 40px;
   }
+a:hover img {
+    content: url("/arrow_hover.svg");
+  }
+  a:hover {
+  color: var(--text-hover-color);
+  cursor: pointer;
+}
 </style>

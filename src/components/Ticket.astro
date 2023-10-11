@@ -1,0 +1,102 @@
+---
+import Button from "./Button.astro";
+const { data } = Astro.props;
+---
+
+<section class="flip-container">
+  <div class="card-container">
+    <article class="card-front">
+      <img src={data.image} alt="theme image" />
+      <h3>{data.name}</h3>
+      <div>
+        <h3 class="h3thin">{data.place}</h3>
+        <h3 class="h3thin">{data.date}</h3>
+      </div>
+      <div class="pricecontainer">
+        <h4 class="h4thin">(Early bird price)</h4>
+        {data.price && <h3>{data.price}</h3>}
+      </div>
+      <Button variant="primary" text={data.link} />
+      <Button variant="secondary" text={data.link2} />
+    </article>
+    <article class="card-back">
+      <img src={data.image} alt="theme image" />
+      <h3>{data.name}</h3>
+      <p set:html={data.info} />
+      <ul set:html={data.info} />
+      <Button variant="primary" text={data.link} />
+      <Button variant="secondary" text={data.link2} />
+    </article>
+  </div>
+</section>
+
+<style>
+  .card-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 1.2s;
+    transform-style: preserve-3d;
+    width: 20rem;
+    height: 650px;
+  }
+
+  .card-front {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--brand-color-primary);
+    color: var(--text-color-alternativ);
+    width: 20rem;
+    height: 650px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    backface-visibility: hidden;
+  }
+  .pricecontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .card-back {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--brand-color-primary);
+    color: var(--text-color-alternativ);
+    width: 20rem;
+    height: 650px;
+    overflow: hidden;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+  }
+
+  .flip-container.click .card-container {
+    transform: rotateY(180deg);
+  }
+
+  .h3thin {
+    font-weight: 100;
+  }
+
+  .h4thin {
+    font-weight: 100;
+  }
+
+  ul {
+    font-size: xx-small;
+  }
+</style>
+
+<script>
+  const cards = document.querySelectorAll(".flip-container");
+
+  cards.forEach((card) => card.addEventListener("click", flip));
+
+  function flip() {
+    this.classList.toggle("click");
+  }
+</script>

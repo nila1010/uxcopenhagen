@@ -106,6 +106,22 @@ p {
   font-size: var(--body-thin-web);
   line-height: var(--line-hight-generel-p);
 }
+.innerhtml {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.innerhtml p {
+  font-size: 12px;
+  margin-left: 12px;
+}
+
+.innerhtml li {
+  font-size: 12px;
+  margin: 0 20px;
+  line-height: 25px;
+}
 
 /*FOOTER
 ---------------------*/

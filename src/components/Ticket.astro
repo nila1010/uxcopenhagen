@@ -22,9 +22,8 @@ const { data } = Astro.props;
     <article class="card-back">
       <img src={data.image} alt="theme image" />
       <h3>{data.name}</h3>
-      <p set:html={data.info} />
-      <ul set:html={data.info} />
-      <Button variant="primary" text={data.link} />
+      <fragment set:html={data.info} />
+      <Button variant="primary" text={data.link3} />
       <Button variant="secondary" text={data.link2} />
     </article>
   </div>
@@ -39,6 +38,7 @@ const { data } = Astro.props;
     transform-style: preserve-3d;
     width: 20rem;
     height: 650px;
+    align-items:center
   }
 
   .card-front {
@@ -54,28 +54,35 @@ const { data } = Astro.props;
     text-align: center;
     backface-visibility: hidden;
   }
-  .pricecontainer {
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-  }
+ 
 
   .card-back {
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
+    align-items:center;
     background-color: var(--brand-color-primary);
     color: var(--text-color-alternativ);
     width: 20rem;
     height: 650px;
-    overflow: hidden;
     transform: rotateY(180deg);
     backface-visibility: hidden;
   }
 
+   .pricecontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
   .flip-container.click .card-container {
     transform: rotateY(180deg);
+  }
+
+  h3{
+    text-align:center;
   }
 
   .h3thin {
@@ -86,9 +93,8 @@ const { data } = Astro.props;
     font-weight: 100;
   }
 
-  ul {
-    font-size: xx-small;
-  }
+  
+
 </style>
 
 <script>

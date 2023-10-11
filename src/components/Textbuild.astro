@@ -5,7 +5,7 @@ import Button from "./Button.astro";
 
 <section>
   <div>
-    <article class="text push-left">
+    <article class="selectanimate animate">
       <h1 class="thin">{data.titelthin}</h1>
       <h1>{data.titelbold}</h1>
       {data.section1 && <p>{data.section1}</p>}
@@ -18,7 +18,7 @@ import Button from "./Button.astro";
       {data.link3 && <Button variant="primary" site={data.site} text={data.link3} />}
     </article>
   </div>
-  <img class="text" class="push-right" src={data.image} alt="prev talks" />
+  <img class="selectanimate animate" src={data.image} alt="prev talks" />
 </section>
 <style>
   section {
@@ -32,9 +32,9 @@ import Button from "./Button.astro";
     max-width: 500px;
     align-self: end;
     opacity: 1;
-    transform: translateX(0);
-    transition: all 0.5s ease-in-out;
+    transition: all 0.8s ease-in-out;
     margin-top: 12rem;
+    filter: grayscale(100%);
   }
 
   article {
@@ -46,8 +46,7 @@ import Button from "./Button.astro";
     flex-direction: column;
     gap: 30px;
     opacity: 1;
-    transform: translateX(0);
-    transition: all 0.5s ease-in-out;
+    transition: all 0.8s ease-in-out;
   }
 
   section:nth-child(even) div:first-child {
@@ -73,18 +72,8 @@ import Button from "./Button.astro";
     max-width: 65ch;
   }
 
-  img {
-    filter: grayscale(100%);
-  }
-
-  .push-right {
+  .animate {
     opacity: 0;
-    transform: translateX(50px);
-  }
-
-  .push-left {
-    opacity: 0;
-    transform: translateX(-50px);
   }
 
   @media (max-width: 1000px) {
@@ -130,70 +119,22 @@ import Button from "./Button.astro";
 </style>
 
 <script>
-  const animationElements = document.querySelectorAll(".text");
+  const animationElements = document.querySelectorAll(".selectanimate");
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.remove("push-left");
-        } else entry.target.classList.add("push-left");
+          entry.target.classList.remove("animate");
+        }
       });
     },
     {
-      threshold: 0.3,
+      threshold: 0.4,
     }
   );
   for (let i = 0; i < animationElements.length; i++) {
     const element = animationElements[i];
     observer.observe(element);
   }
-  /*
-  window.addEventListener("scroll", reveal);
-
-  function reveal() {
-    var reveals = document.querySelectorAll(".text");
-    for (var i = 0; i < reveals.length; i++) {
-      var windowHeight = window.innerHeight;
-      var elementTop = reveals[i].getBoundingClientRect().top;
-
-      if (elementTop < windowHeight) {
-        reveals[i].classList.add("push-left");
-      } else {
-        reveals[i].classList.remove("push-left");
-      }
-    }
-  }
-  /*
-  const text = document.querySelector(".text");
-  const img = document.querySelector(".img");
-
-  window.addEventListener("scroll", appearOnScroll);
-
-  function appearOnScroll(e) {
-    let textPosition = text.getBoundingClientRect().top;
-    let windowHeight = window.innerHeight / 1.5;
-
-    if (windowHeight > textPosition) {
-      text.classList.remove("push-left");
-      img.classList.remove("push-right");
-    } else {
-      text.classList.add("push-left");
-      img.classList.add("push-right");
-    }*/
-  /*
-  const observer = new IntersectionObserver((entries) => {
-    // Loop over the entries
-    entries.forEach((entry) => {
-      // If the element is visible
-      if (entry.isIntersecting) {
-        // Add the animation class
-        entry.target.classList.remove("push-left");
-      } else {
-        entry.target.classList.add("push-left");
-      }
-    });
-  });
-  observer.observe(document.querySelector(".text"));
-  */
 </script>

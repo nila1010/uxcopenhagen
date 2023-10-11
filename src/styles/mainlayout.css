@@ -26,6 +26,8 @@
   --h2-generel-mobil: 25px;
   --h3-bold-web: 27px;
   --h3-thin-web: 27px;
+  --h3-generel-tablet: 40px;
+  --h3-generel-mobil: 25px;
   --h4-bold-web: 21px;
   --h4-thin-web: 21px;
   --body-footer-web: 16px;
@@ -125,6 +127,10 @@ footer {
   h2 {
     font-size: var(--h2-generel-table);
   }
+
+  h3 {
+    font-size: var(--h3-generel-tablet);
+  }
   p {
     font-size: var(--body-generel-table);
     line-height: var(--line-hight-mobil-p);
@@ -141,5 +147,9 @@ footer {
 
   h2 {
     font-size: var(--h2-generel-mobil);
+  }
+
+  h3 {
+    font-size: var(--h3-generel-mobil);
   }
 }

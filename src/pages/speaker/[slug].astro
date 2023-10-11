@@ -1,0 +1,20 @@
+---
+export async function getStaticPaths() {
+  const data = await fetch("https://fcjitciuvvjnpyohjrbx.supabase.co/rest/v1/speakers", {
+  method: "GET",
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZjaml0Y2l1dnZqbnB5b2hqcmJ4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTY0OTY1NDQsImV4cCI6MjAxMjA3MjU0NH0.hqEiYxGAHflWDfWpEC53ykk3Y2DA57jMZbBYXMcWYr8",
+  },
+}
+).then(response => response.json());
+
+  return data.map((speaker) => {
+    return {
+      params: { slug: speaker.slug },
+      props: { data:speaker },
+    };
+  });
+}
+const {data} = Astro.props;
+console.log(data)
+---

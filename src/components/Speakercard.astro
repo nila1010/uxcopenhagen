@@ -2,7 +2,7 @@
 const { data } = Astro.props;
 import Button from "../components/Button.astro";
 ---
-
+<a href=`speaker/${data.slug}`>
 <article>
   <div class="textcontainer">
     <h4 class="titel">{data.titel}</h4>
@@ -18,7 +18,7 @@ import Button from "../components/Button.astro";
     <Button variant="arrow" />
   </div>
 </article>
-
+</a>
 <style>
   article {
     background-color: var(--brand-color-primary);

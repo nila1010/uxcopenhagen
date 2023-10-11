@@ -1,10 +1,10 @@
 ---
 const { data } = Astro.props;
 import Button from "../components/Button.astro";
-
+const linksite = `speakers/${data.slug}`;
 ---
 
-<a href=`speakers/${data.slug}`>
+
 <article>
   <div class="textcontainer">
     <h4 class="titel">{data.titel}</h4>
@@ -17,10 +17,10 @@ import Button from "../components/Button.astro";
     <h4 class="date">{data.date}</h4>
   </div>
   <div class="knap">
-    <Button variant="arrow" />
+    <Button variant="arrow" site={linksite} />
   </div>
 </article>
-</a>
+
 
 <style>
   article {

@@ -6,7 +6,6 @@ const response = await fetch("https://fcjitciuvvjnpyohjrbx.supabase.co/rest/v1/s
   },
 });
 const data = await response.json();
-console.log(data)
 
 import MainLayout from "../layouts/MainLayout.astro";
 import Headline from "../components/Headline.astro";
@@ -17,8 +16,11 @@ import SpeakerSingle from "../components/SpeakerSingle.astro";
   <section class="margintop">
     <Headline overskrift_bold="Speaker" overskrift_thin="2024" />
   </section>
-      {data.map((oneSpeaker)=>{
-      return <SpeakerSingle data={oneSpeaker}></SpeakerSingle>})}
+  {
+    data.map((oneSpeaker) => {
+      return <SpeakerSingle data={oneSpeaker} />;
+    })
+  }
 </MainLayout>
 
 <style>
